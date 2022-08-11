@@ -6,26 +6,26 @@ export type State = {
     tasks: Tasks
 }
 
-export enum ActionType {
+export enum ActionType { // Типы состояний
     Add = 'Add',
     Change = 'Change',
     Remove = 'Remove',
     Toggle = 'Toggle'
 }
 
-type ActionStringPayload = {
+type ActionStringPayload = { // Для добавления и изменения
     type: ActionType.Add | ActionType.Change,
     payload: string
 }
 
-type ActionObjectPayload = {
+type ActionObjectPayload = { // Для удаления
     type: ActionType.Toggle | ActionType.Remove,
     payload: Task
 }
 
 export type Action = ActionStringPayload | ActionObjectPayload;
 
-export type ContextState = {
+export type ContextState = { // Состояние контекста
     state: State;
     changeState: Dispatch<Action>
 }

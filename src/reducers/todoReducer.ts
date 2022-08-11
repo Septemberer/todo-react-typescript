@@ -1,6 +1,7 @@
 import * as React from "react";
 import {State, Action, ActionType} from "../types/stateType";
 
+// Для управления состояниями
 export const todoReducer: React.Reducer<State, Action> = (state, action):State => {
     switch (action.type) {
         case ActionType.Add: {

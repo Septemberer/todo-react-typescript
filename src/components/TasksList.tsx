@@ -9,13 +9,18 @@ const TasksList: React.FC = () => {
 
     const {state, changeState} = useContext(ContextApp);
 
+    // Функция удаления таски, вешается на кнопку
     const removeTask = (taskForRemoving: Task) => {
         changeState({type: ActionType.Remove, payload: taskForRemoving})
     }
+
+    // Функция изменения состояния таски, меняет отметку и цвет(с помощью css)
     const toggleReadiness = (taskForChange: Task) => {
         changeState({type: ActionType.Toggle, payload: taskForChange})
     }
 
+    // Список таск (TO DO), берет все таски из массива и размещает в столбец, у каждой таски есть чекбокс для отметки о выполнении
+    // При нажатии на чекбокс меняется состояние и цвет таски, при нажатии на крестик таска удаляется
     return (
         <>
             <ul id = 'left'>
